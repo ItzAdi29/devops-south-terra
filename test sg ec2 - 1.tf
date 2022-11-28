@@ -31,7 +31,7 @@ resource "aws_security_group" "private-sg" {
 resource "aws_instance" "my-EC2" {
   ami = "ami-0e6329e222e662a52"
   instance_type = "t2.micro"
-  key_name = "test-key"
+  key_name = "devops-test-key"
   vpc_security_group_ids = [aws_security_group.private-sg.id]
   associate_public_ip_address = true
   root_block_device {
@@ -48,18 +48,6 @@ resource "aws_s3_bucket" "test-bucket" {
   bucket = "my-tf-test-bucket"
   acl    = "private"
   tags = {
-    Name        = "My bucket"
+    Name        = "devops-south-tst-buck"
   }
-}
-
-resource "aws_db_instance" "default" {
-  allocated_storage    = 10
-  db_name              = "mydb"
-  engine               = "mysql"
-  engine_version       = "8.0"
-  instance_class       = "db.t2.micro"
-  username             = "admin"
-  password             = "admin123"
-  parameter_group_name = "default.mysql8.0"
-  skip_final_snapshot  = true
 }
