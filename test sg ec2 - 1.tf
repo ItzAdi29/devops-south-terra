@@ -45,7 +45,7 @@ resource "aws_instance" "my-EC2" {
 }
 
 resource "aws_s3_bucket" "test-bucket" {
-  bucket = "my-tf-test-bucket"
+  bucket = "devops-south-tst-buck"
   acl    = "private"
   tags = {
     Name        = "devops-south-tst-buck"
